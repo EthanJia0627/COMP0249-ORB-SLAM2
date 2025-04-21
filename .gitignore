@@ -1,5 +1,5 @@
 *.png
-*.jpg
+# *.jpg
 *.txt
 *.zip
 *.MOV
@@ -7,3 +7,4 @@
 
 /part2_tmp
 /Data/other
+.vscode
