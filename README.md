@@ -56,6 +56,6 @@ eg: result_KITTI_1500_1_0.txt
     result_TUM_1000_0_1.txt
 
 
-# 分个活：一共2*4*2*2种
-KITTI：qzw
+# 分个活：一共2x4x2x2种
+KITTI：qzw  
 TUM：wyk
