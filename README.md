@@ -36,7 +36,7 @@ to
 ```
 
 # CONDITION 4: Turn off the loop closure
-修改脚本 `System.cc`, 注释如下，取消loop closure线程
+修改脚本 `System.cc`, 取消loop closure线程
 
 ``` c++
   // Initialize the Loop Closing thread and launch
