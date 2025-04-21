@@ -57,5 +57,9 @@ eg: result_KITTI_1500_1_0.txt
 
 
 # 分个活：一共2x4x2x2种
-KITTI：qzw  
-TUM：wyk
+## Part 1:
+qzw：KITTI
+wyk：TUM
+
+## Part 2:
+jyy：对于自己的数据集，保证slam效果的同时，如何downsample，减小colmap的时间
