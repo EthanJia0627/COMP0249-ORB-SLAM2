@@ -1,4 +1,9 @@
 *.png
+*.jpg
+*.txt
 *.zip
 *.MOV
 *.Identifier
+
+/part2_tmp
+/Data/other
