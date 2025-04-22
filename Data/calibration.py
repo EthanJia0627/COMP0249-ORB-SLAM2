@@ -16,10 +16,12 @@ objpoints = []  # 3d points
 imgpoints = []  # 2d points
 
 # Read all extracted frames
-images = glob.glob('part2/calibration_frames/*.jpg') # Adjust the path if necessary
+images = glob.glob('Data/SELF/calibration_frames/*.jpg') # Adjust the path if necessary
 
 for fname in images:
     img = cv2.imread(fname)
+    img = cv2.rotate(img, cv2.ROTATE_90_CLOCKWISE)
+    # img = cv2.resize(img, (1080, 720))  # Resize to 1080p for better visualization
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
     # Find chessboard corners
@@ -48,7 +50,7 @@ print("\nDistortion Coefficients:")
 print(dist_coeffs)
 
 # Save calibration results to a txt file
-with open('part2/calibration_result.txt', 'w') as f:
+with open('Data/SELF/calibration_result.txt', 'w') as f:
     f.write("Camera Matrix:\n")
     f.write(np.array2string(camera_matrix, separator=', ') + '\n\n')
     f.write("Distortion Coefficients:\n")

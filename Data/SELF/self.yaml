@@ -6,8 +6,8 @@
 
 Camera.fx: 1629.59544
 Camera.fy: 1626.48883
-Camera.cx: 603.052867
-Camera.cy: 1088.32777
+Camera.cx: 1088.32777
+Camera.cy: 603.052867
 
 Camera.k1: -0.01939241
 Camera.k2: 0.00493468

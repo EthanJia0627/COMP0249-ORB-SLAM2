@@ -2,11 +2,11 @@ import cv2
 import os
 
 # Input video path
-video_path = 'SELF_RAW/calibration_1.MOV'
+video_path = 'Data/SELF_RAW/KYJT6400.MOV'
 
 # Output frame save path
-output_dir = 'SELF/fountain_2'
-image_dir = 'SELF/fountain_2/image_0'
+output_dir = 'Data/SELF/fountain_2'
+image_dir = 'Data/SELF/fountain_2/image_0'
 os.makedirs(output_dir, exist_ok=True)
 os.makedirs(image_dir, exist_ok=True)
 
@@ -35,9 +35,13 @@ while cap.isOpened():
     # Rotate 90 degrees clockwise
     rotated_frame = cv2.rotate(frame, cv2.ROTATE_90_CLOCKWISE)
 
+    # Resize to 1080p
+    # frame = cv2.resize(frame, (1070, 720))  # Resize to 1080p for better visualization
+
     # Save image
     frame_filename = os.path.join(image_dir, f'{frame_id:06d}.png')
-    cv2.imwrite(frame_filename, rotated_frame)
+
+    cv2.imwrite(frame_filename, frame)
     print(f"Saving frame {frame_id} to {frame_filename}")
 
     # Record timestamp
