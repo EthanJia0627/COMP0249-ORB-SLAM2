@@ -5,8 +5,8 @@ import os
 video_path = 'Data/SELF_RAW/KYJT6400.MOV'
 
 # Output frame save path
-output_dir = 'Data/SELF/fountain_2_5fps'
-image_dir = 'Data/SELF/fountain_2_5fps/image_0'
+output_dir = 'Data/SELF/fountain_2_1080'
+image_dir = 'Data/SELF/fountain_2_1080/image_0'
 os.makedirs(output_dir, exist_ok=True)
 os.makedirs(image_dir, exist_ok=True)
 
@@ -35,7 +35,7 @@ while cap.isOpened():
     frame = cv2.rotate(frame, cv2.ROTATE_90_CLOCKWISE)
 
     # Resize to 1080p
-    # frame = cv2.resize(frame, (1080, 720))  # Resize to 1080p for better visualization
+    frame = cv2.resize(frame, (1080, 720))  # Resize to 1080p for better visualization
 
     # Save image
     frame_filename = os.path.join(image_dir, f'{save_frame_id:06d}.png')

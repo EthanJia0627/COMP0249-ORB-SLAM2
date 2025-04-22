@@ -4,15 +4,15 @@
 # Camera Parameters
 #--------------------------------------------------------------------------------------------
 
-Camera.fx: 1626.96150
-Camera.fy: 1630.25669
-Camera.cx: 1070.42674
-Camera.cy: 602.375059
+Camera.fx: 810.16482667
+Camera.fy: 963.37361181
+Camera.cx: 540.52402725
+Camera.cy: 353.97621686
 
-Camera.k1: -0.01915276
-Camera.k2: 0.0062974
-Camera.p1: -0.00195505
-Camera.p2: -0.00249377
+Camera.k1: -0.02835172
+Camera.k2: 0.10393001
+Camera.p1: -0.00328014
+Camera.p2: 0.00071307
 
 # Camera frames per second
 Camera.fps: 24.0
