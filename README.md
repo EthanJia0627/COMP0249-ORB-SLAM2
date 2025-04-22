@@ -9,8 +9,8 @@
 Choose 3 levels of number of features
 `
 
-我们选择：(1500 1000 500) 
-
+我们选择：(1500 1000 500)   
+TUM default 1000, (750 500 200)
 
 # CONDITION 3: Turn off the outlier rejection
 修改脚本 `Optimizer.cc` 位于：
@@ -39,14 +39,7 @@ Choose 3 levels of number of features
 ```
 
 # CONDITION 4: Turn off the loop closure
-修改脚本 `System.cc`, 取消loop closure线程, 注释掉Loop Closing的线程
-
-``` c++
-  // Initialize the Loop Closing thread and launch
-  mpLoopCloser = new LoopClosing(mpMap, mpKeyFrameDatabase, mpVocabulary,
-                                 mSensor != MONOCULAR);
-  mptLoopClosing = new thread(&ORB_SLAM2::LoopClosing::Run, mpLoopCloser);
-```
+见这个[issue](https://github.com/raulmur/ORB_SLAM2/issues/256#issuecomment-513260613)  
 
 # 命名规则
 `result_*data*_*FeaturePointNumber*_*ifOutlier*_*ifLoop*`
