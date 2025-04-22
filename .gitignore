@@ -1,10 +1,18 @@
 *.png
 # *.jpg
-
+# *.txt
 *.zip
 *.MOV
 *.Identifier
 
 /part2_tmp
-/Data/other
 .vscode
+
+results/results_tum/tmp
+results/results_tum/baaaaaaaaaaaaad
+
+/Data/other
+Data/TUM/rgbd_dataset_freiburg2_large_with_loop
+Data/KITTI/sequences/05
+Data/KITTI/poses
+Data/SELF/fountain_2
