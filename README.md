@@ -56,3 +56,18 @@ wyk：TUM
 
 ## Part 2:
 jyy：对于自己的数据集，保证slam效果的同时，如何downsample，减小colmap的时间
+
+
+# Evaluation_EVO:
+
+1. 运行 `eval_tum_batch.sh`，保存结果为pdf，保存数据为zip
+
+2. 运行如下脚本提取zip里的error数据 保存为csv
+
+``` sh
+evo_res your_path/*_APE.zip \
+  --save_table your_path/APE_summary.csv \
+  --use_filenames
+```
+
+(RPE, RPE_ANGLE同理)
