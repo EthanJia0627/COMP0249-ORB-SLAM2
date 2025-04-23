@@ -10,9 +10,12 @@
 
 results/results_tum/tmp
 results/results_tum/baaaaaaaaaaaaad
+results/result_tum_tmp
 
 /Data/other
 Data/TUM/rgbd_dataset_freiburg2_large_with_loop
 Data/KITTI/sequences/05
 Data/KITTI/poses
 Data/SELF/fountain_2
+
+evo_eval/tum
