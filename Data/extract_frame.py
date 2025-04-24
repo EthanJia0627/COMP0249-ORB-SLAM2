@@ -2,11 +2,11 @@ import cv2
 import os
 
 # Input video path
-video_path = 'Data/SELF_RAW/KYJT6400.MOV'
+video_path = 'Data/SELF_RAW/JGNS1343.MOV'
 
 # Output frame save path
-output_dir = 'Data/SELF/fountain_2_1080'
-image_dir = 'Data/SELF/fountain_2_1080/image_0'
+output_dir = 'Data/SELF/room_2_5fps'
+image_dir = 'Data/SELF/room_2_5fps/image_0'
 os.makedirs(output_dir, exist_ok=True)
 os.makedirs(image_dir, exist_ok=True)
 
@@ -21,7 +21,8 @@ save_frame_id = 0    # Continuous frame id
 # Set target FPS
 target_fps = 5
 video_fps = cap.get(cv2.CAP_PROP_FPS)
-
+if target_fps > video_fps:
+    target_fps = video_fps
 timestamps = []
 
 while cap.isOpened():
@@ -32,10 +33,10 @@ while cap.isOpened():
         frame_id += 1
         continue
     # Rotate 90 degrees clockwise
-    frame = cv2.rotate(frame, cv2.ROTATE_90_CLOCKWISE)
+    # frame = cv2.rotate(frame, cv2.ROTATE_90_CLOCKWISE)
 
     # Resize to 1080p
-    frame = cv2.resize(frame, (1080, 720))  # Resize to 1080p for better visualization
+    # frame = cv2.resize(frame, (1080, 720))  # Resize to 1080p for better visualization
 
     # Save image
     frame_filename = os.path.join(image_dir, f'{save_frame_id:06d}.png')
