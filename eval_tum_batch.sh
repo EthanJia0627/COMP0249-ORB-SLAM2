@@ -1,11 +1,11 @@
 #!/bin/bash
 
-GT="Data/TUM/rgbd_dataset_freiburg2_large_with_loop/groundtruth.txt"
-EST_DIR="results/results_tum"
-OUT_DIR="evo_eval/tum"
+GT="Data/TUM/rgbd_dataset_freiburg3_long_office_household/groundtruth.txt"
+EST_DIR="results/results_tum/office"
+OUT_DIR="evo_eval/office"
 mkdir -p "$OUT_DIR"
 
-for f in $EST_DIR/result_TUM_*.txt
+for f in $EST_DIR/result_*.txt
 do
   fname=$(basename "$f" .txt)
 

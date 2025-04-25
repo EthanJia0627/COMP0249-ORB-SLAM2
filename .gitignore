@@ -14,8 +14,10 @@ results/result_tum_tmp
 
 /Data/other
 Data/TUM/rgbd_dataset_freiburg2_large_with_loop
+Data/TUM/rgbd_dataset_freiburg3_long_office_household
 Data/KITTI/sequences/05
 Data/KITTI/poses
 Data/SELF/fountain_2
 
-evo_eval/tum
+evo_eval/toy bear
+evo_eval/office

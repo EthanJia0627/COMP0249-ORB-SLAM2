@@ -65,8 +65,8 @@ jyy：对于自己的数据集，保证slam效果的同时，如何downsample，
 2. 运行如下脚本提取zip里的error数据 保存为csv
 
 ``` sh
-evo_res your_path/*_APE.zip \
-  --save_table your_path/APE_summary.csv \
+evo_res evo_eval/office/*_RPE_ANGLE.zip \
+  --save_table evo_eval/office_RPE_ANGLE_summary.csv \
   --use_filenames
 ```
 
