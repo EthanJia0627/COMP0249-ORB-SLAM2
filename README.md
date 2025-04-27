@@ -1,37 +1,56 @@
+# COMP0249 Coursework 2  
+
+**Group 2**  
+Yukai Wang, Yiyang Jia, Zewen Qu  
+MSc Robotics and Artificial Intelligence,  
+Department of Computer Science,  
+University College London
+
+**Contact Emails**:  
+yukai.wang.24@ucl.ac.uk  
+yiyang.jia.24@ucl.ac.uk  
+zewen.qu.24@ucl.ac.uk
+
+
 # CONDITION 1: Run the system with off-the-shelf options
-完全default的KITTI和TUM的yaml
+Completely default KITTI and TUM yaml files.
 
+# CONDITION 2: Reduce the number of ORB features
+Modify the `ORBextractor.nFeatures` in the yaml file.  
 
-# CONDITION 2: Reduce  the  number  of  ORB  features   
-修改yaml的 `ORBextractor.nFeatures` (default 2000)  
+### KITTI Dataset
+- Default: 2000  
+- 3 Levels:  
+  - 1750 
+  - 1500
+  - 1250  
 
-`
-Choose 3 levels of number of features
-`
-
-我们选择：(1500 1000 500)   
-TUM default 1000, (750 500 200)
+### TUM Dataset
+- Default: 1000  
+- 3 Levels:  
+  - 850  
+  - 700  
+  - 550  
 
 # CONDITION 3: Turn off the outlier rejection
-修改脚本 `Optimizer.cc` 位于：
+Modify the script `Optimizer.cc` located at:
 
 `
 ~/COMP0249_24-25_ORB_SLAM2/Source/Libraries/ORB_SLAM2/src
 `
 
-
 ``` c++
-      if (chi2 > chi2Mono[it]) {
-        pFrame->mvbOutlier[idx] = true;
-        e->setLevel(1);
-        nBad++;
-      } else {
-        pFrame->mvbOutlier[idx] = false;
-        e->setLevel(0);
-      }
+  if (chi2 > chi2Mono[it]) {
+    pFrame->mvbOutlier[idx] = true;
+    e->setLevel(1);
+    nBad++;
+  } else {
+    pFrame->mvbOutlier[idx] = false;
+    e->setLevel(0);
+  }
 ```
 
-改成：（不判断是否是离群点 全部接受）
+Change to: (accept all outliers)
 
 ``` c++
     pFrame->mvbOutlier[idx] = false;
@@ -39,30 +58,21 @@ TUM default 1000, (750 500 200)
 ```
 
 # CONDITION 4: Turn off the loop closure
-见这个[issue](https://github.com/raulmur/ORB_SLAM2/issues/256#issuecomment-513260613)  
+Comment out all loop closure related threads in `System.cc`, `LocalMapping.cc` and  `Tracking.cc`.  
+Reference: see this [issue](https://github.com/raulmur/ORB_SLAM2/issues/256#issuecomment-513260613).
 
-# 命名规则
+# Result File Name
 `result_*data*_*FeaturePointNumber*_*ifOutlier*_*ifLoop*`
 
-eg: result_KITTI_1500_1_0.txt
-    result_TUM_2000_0_0.txt (default)
-    result_TUM_1000_0_1.txt
+e.g.: result_KITTI_1500_1_0.txt  
+  result_TUM_2000_0_0.txt (default)  
+  result_TUM_1000_0_1.txt
 
+# EVO:
 
-# 分个活：一共2x4x2x2种
-## Part 1:
-qzw：KITTI
-wyk：TUM
+1. Run `eval_tum_batch.sh`, save the result iamge sas a PDF, and save the data as a ZIP file.
 
-## Part 2:
-jyy：对于自己的数据集，保证slam效果的同时，如何downsample，减小colmap的时间
-
-
-# Evaluation_EVO:
-
-1. 运行 `eval_tum_batch.sh`，保存结果为pdf，保存数据为zip
-
-2. 运行如下脚本提取zip里的error数据 保存为csv
+2. Run the following script to extract error data from the ZIP file and save it as a CSV:
 
 ``` sh
 evo_res evo_eval/office/*_RPE_ANGLE.zip \
@@ -70,4 +80,4 @@ evo_res evo_eval/office/*_RPE_ANGLE.zip \
   --use_filenames
 ```
 
-(RPE, RPE_ANGLE同理)
+(similar to RPE, RPE_ANGLE)
