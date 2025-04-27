@@ -12,10 +12,13 @@ yiyang.jia.24@ucl.ac.uk
 zewen.qu.24@ucl.ac.uk
 
 
-# CONDITION 1: Run the system with off-the-shelf options
+# CONDITION code Modification
+For specific changes below, slease see this [commit](https://github.com/EthanJia0627/COMP0249_24-25_ORB_SLAM2/commit/ef84de2af54bb124a8b3b9d4eaf129de246b6a32) of this [repo](https://github.com/EthanJia0627/COMP0249_24-25_ORB_SLAM2). 
+
+## CONDITION 1: Run the system with off-the-shelf options
 Completely default KITTI and TUM yaml files.
 
-# CONDITION 2: Reduce the number of ORB features
+## CONDITION 2: Reduce the number of ORB features
 Modify the `ORBextractor.nFeatures` in the yaml file.  
 
 ### KITTI Dataset
@@ -32,7 +35,7 @@ Modify the `ORBextractor.nFeatures` in the yaml file.
   - 700  
   - 550  
 
-# CONDITION 3: Turn off the outlier rejection
+## CONDITION 3: Turn off the outlier rejection
 Modify the script `Optimizer.cc` located at:
 
 `
@@ -57,7 +60,7 @@ Change to: (accept all outliers)
     e->setLevel(0);
 ```
 
-# CONDITION 4: Turn off the loop closure
+## CONDITION 4: Turn off the loop closure
 Comment out all loop closure related threads in `System.cc`, `LocalMapping.cc` and  `Tracking.cc`.  
 Reference: see this [issue](https://github.com/raulmur/ORB_SLAM2/issues/256#issuecomment-513260613).
 
